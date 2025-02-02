@@ -262,7 +262,7 @@ class Core {
   unsigned long receivedNotificationAt = 0;
   uint32_t msScanTime = 4000; /** 0 = scan forever */
   uint8_t countFailedConnection = 0;
-  uint8_t retryCountInOneConnection = 3;
+  uint8_t retryCountInOneConnection = /*3*/0;
   unsigned long retryIntervalMs = 100;
   NimBLEClient* pClient = nullptr;
 
