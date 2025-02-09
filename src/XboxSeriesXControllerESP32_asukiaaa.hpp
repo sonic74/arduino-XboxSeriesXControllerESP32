@@ -309,6 +309,7 @@ class Core {
     /** Check if we have a client we should reuse first **/
     if (NimBLEDevice::getCreatedClientCount()) {
       pClient = NimBLEDevice::getClientByPeerAddress(advDevice->getAddress());
+      pClient->setConnectTimeout(1*1000);
       if (pClient) {
         pClient->connect();
       }
@@ -325,6 +326,7 @@ class Core {
       }
 
       pClient = NimBLEDevice::createClient();
+      pClient->setConnectTimeout(1*1000);
 
 #ifdef XBOX_SERIES_X_CONTROLLER_DEBUG_SERIAL
       XBOX_SERIES_X_CONTROLLER_DEBUG_SERIAL.println("New client created");
