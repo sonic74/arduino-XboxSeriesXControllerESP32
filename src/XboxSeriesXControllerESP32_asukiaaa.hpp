@@ -309,8 +309,8 @@ class Core {
     /** Check if we have a client we should reuse first **/
     if (NimBLEDevice::getCreatedClientCount()) {
       pClient = NimBLEDevice::getClientByPeerAddress(advDevice->getAddress());
-      pClient->setConnectTimeout(1*1000);
       if (pClient) {
+        pClient->setConnectTimeout(1*1000);
         pClient->connect();
       }
     }
